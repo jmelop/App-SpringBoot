@@ -4,10 +4,14 @@
 <head>
 	<meta charset="UTF-8" />
 	<title th:text="${title}"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	</link>
 </head>
 
 <body>
-	<h1 th:text="${title}"></h1>
+	<h1 class="red-color" th:text="${title}"></h1>
+	<h2 class="blue-color">Test</h2>
+	<img th:src="@{/images/spring.png}"></img>
 </body>
 
 </html>

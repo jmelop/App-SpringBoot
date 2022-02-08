@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Send Parameters to HTTP GET Request - URL</title>
+</head>
+
+<body>
+	<h1>Send Parameters to HTTP GET Request - URL</h1>
+	<ul>
+		<li>
+			<a th:href="@{/params/string(text='Test')}">/params/string?text=Test</a>
+		</li>
+		<li>
+			<a th:href="@{/params/string(text='Test2')}">/params/string?text=Test2</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params(text='Using multiple params', number=7)}">/params/mix-params?text=Using
+				multiple params&number=7</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params-request(text='Using multiple params', number=7)}">/params/mix-params-request?text=Using
+				multiple params&number=7</a>
+		</li>
+	</ul>
+</body>
+
+</html>
