@@ -3,6 +3,7 @@ package com.nex.springboot.web.app.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +16,18 @@ import com.nex.springboot.web.app.models.User;
 @RequestMapping("/app")
 public class IndexController {
 	
+	@Value("${text.indexcontroller.index.title}") 
+	private String indexText;
+	
+	@Value("${text.indexcontroller.profile.title}") 
+	private String indexProfile;
+	
+	@Value("${text.indexcontroller.index.title}") 
+	private String showIndex;
+	
 	@GetMapping({"/home", "/", "/index"})
 	public String index(Model model) {
-		model.addAttribute("title", "Hello Spring framework");
+		model.addAttribute("title", indexText);
 		return "index";
 	}
 	
@@ -29,13 +39,13 @@ public class IndexController {
 		user.setEmail("example@gmail.com");
 
 		model.addAttribute("user", user);
-		model.addAttribute("title", "User profile: ".concat(user.getName()));
+		model.addAttribute("title", indexProfile.concat(user.getName()));
 		return "profile";
 	}
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("title", "User list");
+		model.addAttribute("title", showIndex);
 
 		return "list";
 	}
